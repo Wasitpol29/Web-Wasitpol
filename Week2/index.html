@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ทดสอบ Web Event</title>
+    <style>
+        Input{
+            height: 30px;
+            width: 300;
+            border-radius: 20;
+            font-size: 30px;
+            color: black;
+        }
+
+        select{
+            font-size: 15px;
+            padding: 10px;
+        }
+        </style>
+</head>
+
+<body>
+    <h2>ทดสอบการอ่านข้อความจาก Input</h2>
+    <input id="msg-input" placeholder="กรุณากรอกข้อความ" type="password">
+    
+    <h2>ทดสอบการเลือกแบบ Select</h2>
+    <p id="show-msg">ข้อความที่อ่านได้: </p>
+    <select id="select-input">
+        <option>โปรดเลือกตัวเลือกใดก็ได้ </option>
+        <option>ตัวเลือกที่ 1</option>
+        <option>ตัวเลือกที่ 2</option>
+        <option>ตัวเลือกที่ 3</option>
+        <option>ตัวเลือกที่ 4</option>
+    </select>
+
+    <script>
+        const msgInputElement = document.getElementById('msg-input')
+        msgInputElement.addEventListener("input", function() {
+            const msg = this.value
+            const showMsgElement = document.getElementById('show-msg')
+            showMsgElement.innerText = 'ข้อความที่อ่านได้: ' + msg
+        })
+
+        const msgSelectElement = document.getElementById('select-input')
+        msgSelectElement.addEventListener("input", function() {
+            const msg = this.value
+            const showMsgElement = document.getElementById('show-msg')
+            showMsgElement.innerText = 'ข้อความที่อ่านได้: ' + msg
+        })
+    </script>
+
+</body>
+
+</html>

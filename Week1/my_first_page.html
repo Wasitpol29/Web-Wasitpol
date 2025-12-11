@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>UIAA</title>
+        <style>
+        h4 {
+            color:rgb(238, 217, 29) ;
+            font-size: xx-large;
+            text-align: center;
+        }
+        p {
+            color: rgb(197, 74, 228);
+            font-size: x-large;
+            text-align: center;
+        }
+        img {
+            width: 50%;
+            background-color: rgb(157, 59, 196);
+            padding: 1%;
+            border-color: black;
+            border-width: 5px;  
+            border-style: dotted;
+            border-radius: 10%;
+            margin-left: 24%;    
+        }   
+        button {
+            font-size: 40px;
+            background-color: blueviolet;  
+            color: rgb(231, 212, 37);
+             
+        }
+        </style>
+    </head>
+
+    <body>
+        <h4 id = "title-text">The World</h4>
+        <h4 style="color: rgb(172, 91, 219); font-size: 50px; margin: 5%; background-color: rgb(3, 3, 3);">JJBA</h4>
+        <h4>Jotaro!!</h4>
+        <p>Dio!</p>
+        <img id="web-img" src="https://pbs.twimg.com/media/GZ5isthXgAAdYDk.jpg" alt="404">
+        <button onclick="sayHello()">คลิกๆๆๆ</button>
+        <script>
+            let myName = 'บักหรรม'
+            function sayHello() {
+                alert('Yare yare' + myName)
+                const textTitleElement = document.getElementById('title-text')
+                textTitleElement.innerText = 'สวัสดีครับ' + myName
+                textTitleElement.style = 'color: yello; font-size: 60px;'
+
+                const webimage = document.getElementById('web-img')
+                webimage.src = "https://preview.redd.it/how-did-bruno-discover-his-lie-detecting-ability-v0-96f9jfzbwvse1.jpeg?width=1080&crop=smart&auto=webp&s=e53ca2e0d04d0b68eb4d9d4f09a0a0c14e9458eb"
+
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>เขียนโปรแกรมแสดงผลตามเงื่อนไขของผู้ใช้</title>
+
+</head>
+
+<body>
+    <h2>รับอายุ</h2>
+    <input id="input-age" placeholder="กรอกอายุ" type="number">
+    <button onclick="checkAge()">ตรวจสอบ</button>
+    <h2 id="age-msg">คุณอยู่ในวัย: </h2>
+
+    <script>
+        function checkAge() {
+            const ageInputElement = document.getElementById('input-age')
+            const age = ageInputElement.value
+            const ageMsgElement = document.getElementById('age-msg')
+
+            if (age === "") {
+                alert('ยังไม่ได้ระบุอายุ')
+            }
+
+            const convertAgeToNumber = Number(age)
+            if (convertAgeToNumber >= 60) {
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: สูงอายุ'
+            } else if (convertAgeToNumber >= 25) {
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: ทำงาน'
+            } else if (convertAgeToNumber >= 13) {
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: รุ่น'
+            } else {
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: เด็ก'
+            }
+        }
+    </script>
+</body>
+
+</html>
