@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>เรียน Advance dom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="flex-header nav-menu-container sriracha-regular">
+        <a class="nav-menu-item" href="index.html">หน้าแรก✨</a>
+        <a class="nav-menu-item" href="https://www.tiktok.com/about?lang=th-TH/">Facebook ❤️️</a>
+        <a class="nav-menu-item" href="https://www.instagram.com/">Instagram ❤️️</a>
+        <a class="nav-menu-item" href="../Week2/index.html">บทเรียนสัปดาห์ที่ 2 ❤️️</a>
+        <a class="nav-menu-item" href="../Week3/dom.html">บทเรียนเรื่อง Dom และ Bom ❤️️</a>
+    </div>
+
+    <div class="flex-header sriracha-regular header-container">
+        <h2>เรียนเรื่อง Get Element By Tag Name</h2>
+    </div>
+
+    <script>
+        const aTags = document.getElementsByTagName('a')
+        console.log(aTags[1])
+
+        const navMenuClassItem = document.getElementsByClassName('nav-menu-item')
+        navMenuClassItem[1].innerText = 'Tiktok ❤️'
+    </script>
+
+</body>
+
+</html>
