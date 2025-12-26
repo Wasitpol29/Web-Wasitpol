@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week4 - Project Overview</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 35px;
+            width: 420px;
+            border-radius: 16px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            color: #1976d2;
+            margin-bottom: 25px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #ffffff;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-info {
+            background-color: #1976d2;
+        }
+
+        .btn-refresh {
+            background-color: #388e3c;
+        }
+
+        .btn-open {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 id="greeting">สวัสดีครับคุณ ชื่อ</h1>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-info" onclick="showUserInfo()">แสดงข้อมูลผู้ใช้</button>
+            <button class="btn-refresh" onclick="window.location.reload()">รีเฟรชหน้า</button>
+            <button class="btn-open" onclick="openNewWindow()">เปิดหน้าต่างใหม่</button>
+        </div>
+    </div>
+
+    <script>
+        const userName = window.prompt("กรุณากรอกชื่อของคุณ");
+        if (userName) {
+            document.getElementById("greeting").innerText = `สวัสดีคุณ ${userName}`;
+        }
+
+        function showUserInfo() {
+            const userAgent = navigator.userAgent;
+            const language = navigator.language;
+            const width = screen.width;
+            const height = screen.height;
+            alert(`ข้อมูลผู้ใช้:\nUser Agent: ${userAgent} \nLanguage: ${language}\nScreen Width: ${width}\nScreen Height: ${height}`)
+        }
+
+        function openNewWindow() {
+            window.open("https://www.youtube.com/?hl=th&gl=TH&app=desktop")
+        }
+    </script>
+</body>
+
+</html>

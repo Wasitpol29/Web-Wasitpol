@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+    <title>ระบบยืมหนังสือ</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Prompt", sans-serif;
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="w-full max-w-lg">
+
+        <div class="text-center mb-8">
+
+            <div class="avatar mb-4">
+                <div class="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
+                    <img
+                        src="https://static.jojowiki.com/images/thumb/c/ce/latest/20210107171552/Yoshikage_Kira_Original_Infobox_Manga.png/400px-Yoshikage_Kira_Original_Infobox_Manga.png" />
+                </div>
+            </div>
+
+            <h1 class="text-3xl font-semibold text-gray-800">ยืมหนังสือ</h1>
+            <p class="text-gray-500 mt-2 font-light">ยินดีต้อนรับ, กรอกข้อมูลด้านล่างเพื่อทำการยืม</p>
+        </div>
+
+        <div class="card bg-white shadow-xl border border-gray-100 rounded-2xl">
+            <div class="card-body p-8 space-y-2">
+
+                <form action="/borrow" method="POST" class="space-y-6">
+
+                    <div class="form-control w-full">
+                        <label class="label mb-1">
+                            <span class="label-text text-gray-600 font-medium">ชื่อ-นามสกุล</span>
+                        </label>
+                        <input type="text" name="student_name" placeholder="กรุณาระบุชื่อ"
+                            class="input input-bordered w-full rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-gray-50"
+                            required />
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label mb-1">
+                            <span class="label-text text-gray-600 font-medium">หมวดหมู่หนังสือ</span>
+                        </label>
+                        <select name="category"
+                            class="select select-bordered w-full rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-gray-50 text-gray-600 font-light">
+                            <option disabled selected>กรุณาเลือกหมวดหมู่</option>
+                            <option>Basic Programming</option>
+                            <option>Advanced Programming</option>
+                            <option>Web Programming</option>
+                            <option>Mobile Application</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-control w-full">
+                            <label class="label mb-1">
+                                <span class="label-text text-gray-600 font-medium">ชื่อหนังสือ</span>
+                            </label>
+                            <input type="text" name="book_title" placeholder="ชื่อหนังสือ"
+                                class="input input-bordered w-full rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-gray-50"
+                                required />
+                        </div>
+
+                        <div class="form-control w-full">
+                            <label class="label mb-1">
+                                <span class="label-text text-gray-600 font-medium">วันที่คืน</span>
+                            </label>
+                            <input type="date" name="return_date"
+                                class="input input-bordered w-full rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-gray-50 text-gray-600"
+                                required />
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit"
+                            class="btn btn-neutral w-full rounded-lg text-base font-normal shadow-md hover:shadow-lg transition-all duration-200">
+                            ยืนยันข้อมูล
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 text-xs text-gray-400 font-light">
+            &copy; 2024 Library System.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
