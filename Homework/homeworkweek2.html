@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Registration Form</title>
+    <style>
+        /* Global Reset & Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f7f6; /* Soft light background */
+            padding: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 100%;
+            max-width: 500px; /* Slightly narrower for focus */
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header */
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #2c3e50; /* Darker text for professionalism */
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block; /* Make label full width */
+            font-weight: 600; /* Bolder label */
+            font-size: 15px;
+            color: #34495e;
+            margin-bottom: 8px;
+        }
+
+        /* All Inputs (Text, Email, Password, Tel, Date, File, Color) */
+        input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]) {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #dcdcdc; /* Lighter border */
+            font-size: 15px;
+            color: #333;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]) {
+            border-color: #3498db; /* Focus color */
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        /* Special Input Styles */
+        input[type="color"] {
+            height: 40px; /* Standardize height */
+            padding: 5px;
+            width: 60px; /* Smaller width for color picker */
+        }
+
+        .file-label {
+            display: block;
+        }
+
+        /* Range Input Specific */
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="range"] {
+            flex-grow: 1;
+            padding: 0;
+            margin: 0;
+            -webkit-appearance: none; /* Required for modern styling */
+            appearance: none;
+            background: transparent;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px; /* Center the thumb vertically */
+            height: 20px;
+            width: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .range-value {
+            font-weight: 700;
+            color: #3498db;
+            font-size: 18px;
+            min-width: 30px; /* Prevent text jump */
+            text-align: right;
+        }
+
+        /* Checkbox/Radio Styling */
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+            color: #555;
+        }
+
+        /* Buttons */
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            width: 50%;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db; /* Primary Blue */
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+        }
+
+        input[type="reset"] {
+            background-color: #bdc3c7; /* Secondary Grey */
+            color: #333;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #95a5a6;
+            box-shadow: 0 4px 10px rgba(189, 195, 199, 0.4);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            input[type="submit"],
+            input[type="reset"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>✨ Register Account</h2>
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a strong password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Phone Number</label>
+                <input type="tel" id="tel" placeholder="e.g. 08x-xxxx-xxxx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Favorite Color</label>
+                <input type="color" id="color" value="#3498db">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <div class="range-container">
+                    <input type="range" id="age" min="18" max="100" value="25">
+                    <span class="range-value" id="rangeValue">25</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="file-label" for="file">Upload Profile Picture (Optional)</label>
+                <input type="file" id="file" accept="image/*">
+            </div>
+            
+            <div class="form-group">
+                <label for="terms" class="checkbox-label">
+                    <input type="checkbox" id="terms" required> I agree to the <a href="#" style="color:#3498db; text-decoration:none;">terms and conditions</a>
+                </label>
+            </div>
+
+
+            <div class="button-container">
+                <input type="submit" value="Register">
+                <input type="reset" value="Clear Form">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for dynamic range value display
+        const rangeInput = document.getElementById('age');
+        const rangeValue = document.getElementById('rangeValue');
+        
+        // Ensure initial value is set correctly
+        rangeValue.textContent = rangeInput.value; 
+
+        rangeInput.addEventListener('input', function() {
+            rangeValue.textContent = rangeInput.value;
+        });
+
+        // Form submission logic
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const phone = document.getElementById('tel').value;
+            const dob = document.getElementById('dob').value;
+            const color = document.getElementById('color').value;
+            const terms = document.getElementById('terms').checked;
+            const file = document.getElementById('file').files[0];
+            const age = document.getElementById('age').value;
+
+            // Show confirmation
+            alert(`✅ Registration Successful!\n\nSubmitted Data:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nDate of Birth: ${dob}\nFavorite Color: ${color}\nAge: ${age}\nTerms agreed: ${terms ? 'Yes' : 'No'}\nProfile Picture: ${file ? file.name : 'None'}`);
+        });
+    </script>
+</body>
+</html>
